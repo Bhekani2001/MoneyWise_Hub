@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore FinStart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">SmartStart Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learn_earn.html">Learn & Earn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FinStart Tools</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toolsNav" aria-controls="toolsNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="toolsNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#budgeting">Budgeting Tool</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#saving">Saving Tips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#spending">Spending Analysis</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FinStart Overview</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#overviewNav" aria-controls="overviewNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="overviewNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About FinStart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-primary text-white text-center py-5">
+        <h1>Explore FinStart</h1>
+        <p class="lead">Master budgeting, saving, and spending wisely.</p>
+    </header>
+
+    <main class="container my-5">
+        <div class="card mb-5" id="budgeting" style="height: 100vh;">
+            <div class="card-body text-center">
+                <h2>Budgeting Tool</h2>
+                <form id="budgetForm">
+                    <div class="mb-3">
+                        <label for="income" class="form-label">Monthly Income</label>
+                        <input type="number" class="form-control" id="income" placeholder="Enter your income" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="expenses" class="form-label">Monthly Expenses</label>
+                        <input type="number" class="form-control" id="expenses" placeholder="Enter your expenses" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Calculate Savings</button>
+                </form>
+                <div id="budgetResult" class="mt-4">
+                    <p><strong>Result:</strong> <span id="savingsMessage">Your savings will appear here.</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-5" id="saving" style="height: 100vh;">
+            <div class="card-body text-center">
+                <h2>Saving Tips</h2>
+                <ul class="list-group mx-auto" style="max-width: 400px;">
+                    <li class="list-group-item">Set aside 20% of your income for savings.</li>
+                    <li class="list-group-item">Automate your savings to avoid spending temptations.</li>
+                    <li class="list-group-item">Track your expenses to identify unnecessary spending.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-5" id="spending" style="height: 100vh;">
+            <div class="card-body text-center">
+                <h2>Spending Analysis</h2>
+                <form id="spendingForm">
+                    <div class="mb-3">
+                        <label for="spendingCategory" class="form-label">Category</label>
+                        <input type="text" class="form-control" id="spendingCategory" placeholder="e.g., Food, Entertainment" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="spendingAmount" class="form-label">Amount</label>
+                        <input type="number" class="form-control" id="spendingAmount" placeholder="Enter amount spent" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Analyze</button>
+                </form>
+                <div id="spendingResult" class="mt-4">
+                    <p><strong>Analysis:</strong> <span id="spendingMessage">Your spending analysis will appear here.</span></p>
+                </div>
+            </div>
+        </div>
+
+        <section class="card mb-5" id="about" style="height: 100vh;">
+            <div class="card-body">
+                <h2>About FinStart</h2>
+                <p>Finstart Nordic was established in 2018 by SpareBank 1 Sør-Norge, as the strategic investment arm in fintech, technology, and impact companies.</p>
+                <p>Finstart is a 100% owned subsidiary of SpareBank 1 Sør-Norge ASA based in Oslo and Stavanger, integrated in terms of operations and distribution possibilities.</p>
+                <p>We strive to be valuable, resourceful, and active partners to the companies we are engaged with.</p>
+            </div>
+        </section>
+
+        <section class="card mb-5" id="portfolio" style="height: 100vh;">
+            <div class="card-body">
+                <h2>Portfolio</h2>
+                <p>Here is an overview of the companies we have ownership in:</p>
+                <ul class="list-group">
+                    <li class="list-group-item">Apex</li>
+                    <li class="list-group-item">Aritma</li>
+                    <li class="list-group-item">Beaufort (Exit 06.2024)</li>
+                    <li class="list-group-item">Boost Ai</li>
+                    <li class="list-group-item">Celsia (Exit 04.2024)</li>
+                    <li class="list-group-item">Folkeinvest</li>
+                    <li class="list-group-item">Gojust</li>
+                    <li class="list-group-item">Justify</li>
+                    <li class="list-group-item">Lucidtech</li>
+                    <li class="list-group-item">Morescope</li>
+                    <li class="list-group-item">Norm Invest</li>
+                    <li class="list-group-item">Open Horizon</li>
+                    <li class="list-group-item">Swiipe</li>
+                    <li class="list-group-item">Unlisted</li>
+                    <li class="list-group-item">Adminkit</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card mb-5" id="team" style="height: 100vh;">
+            <div class="card-body">
+                <h2>Team</h2>
+                <p>A highly efficient team based in Oslo and Stavanger, backed by industry and domain specialists in SpareBank 1 Sør-Norge.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Vidar Aksland</strong> - CEO
+                        <a href="https://www.linkedin.com" class="btn btn-link">LinkedIn</a>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Christopher Hjelseth</strong> - Director Investments and Portfolio Development
+                        <a href="https://www.linkedin.com" class="btn btn-link">LinkedIn</a>
+                        <p>Phone: +47 97641634</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card mb-5" id="contact" style="height: 100vh;">
+            <div class="card-body">
+                <h2>Contact Info</h2>
+                <p>Fintech founder? Include pitch deck: <a href="mailto:christopher@finstart.co">christopher@finstart.co</a></p>
+                <p>General inquiries: <a href="mailto:hello@finstart.co">hello@finstart.co</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 SmartStart Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('budgetForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const income = parseFloat(document.getElementById('income').value);
+            const expenses = parseFloat(document.getElementById('expenses').value);
+
+            if (isNaN(income) || isNaN(expenses) || income <= 0 || expenses < 0) {
+                alert('Please enter valid numbers for income and expenses.');
+                return;
+            }
+
+            const savings = income - expenses;
+            const message = savings > 0 ? `You can save $${savings.toFixed(2)} this month.` : `You are overspending by $${Math.abs(savings).toFixed(2)}.`;
+            document.getElementById('savingsMessage').textContent = message;
+        });
+
+        document.getElementById('spendingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const category = document.getElementById('spendingCategory').value;
+            const amount = parseFloat(document.getElementById('spendingAmount').value);
+
+            if (!category.trim() || isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid category and amount.');
+                return;
+            }
+
+            const message = `You spent $${amount.toFixed(2)} on ${category}. Consider if this aligns with your budget.`;
+            document.getElementById('spendingMessage').textContent = message;
+        });
+    </script>
+</body>
+</html>

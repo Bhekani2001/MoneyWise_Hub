@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit SideHustle Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header .card {
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 500px; /* Maintained height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center; /* Ensured text alignment */
+        }
+
+        .accordion-body {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .accordion-button {
+            background-color: #f8f9fa;
+            border: none;
+            font-weight: bold;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-button:hover {
+            background-color: #e9ecef;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .navbar-nav .nav-link i {
+            font-size: 1.5rem; /* Increased icon size */
+            margin-right: 5px; /* Added spacing between icon and text */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Side Hustle Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hustleNav" aria-controls="hustleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="hustleNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#collapseIdeas">
+                            <i class="bi bi-lightbulb"></i> Business Ideas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#collapseTips">
+                            <i class="bi bi-gear"></i> Tips for Success
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#collapseAdvice">
+                            <i class="bi bi-chat-dots"></i> Expert Advice
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container my-5">
+        <div class="accordion" id="sideHustleAccordion">
+            <!-- Business Ideas Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingIdeas">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIdeas" aria-expanded="true" aria-controls="collapseIdeas">
+                        Business Ideas
+                    </button>
+                </h2>
+                <div id="collapseIdeas" class="accordion-collapse collapse show" aria-labelledby="headingIdeas" data-bs-parent="#sideHustleAccordion">
+                    <div class="accordion-body">
+                        <p>Explore creative opportunities to start your side hustle:</p>
+                        <ul class="list-group">
+                            <li class="list-group-item">Tutoring: Help students excel in their studies.</li>
+                            <li class="list-group-item">Flipping phones: Buy and sell phones for profit.</li>
+                            <li class="list-group-item">Digital art: Create and sell unique artwork online.</li>
+                            <li class="list-group-item">Freelance writing: Offer content creation services.</li>
+                            <li class="list-group-item">Social media management: Manage accounts for businesses.</li>
+                            <li class="list-group-item">Event planning: Organize events for clients.</li>
+                            <li class="list-group-item">Handmade crafts: Sell custom-made products.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips for Success Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTips">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTips" aria-expanded="true" aria-controls="collapseTips">
+                        Tips for Success
+                    </button>
+                </h2>
+                <div id="collapseTips" class="accordion-collapse collapse show" aria-labelledby="headingTips" data-bs-parent="#sideHustleAccordion">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Understand your target audience.</li>
+                            <li class="list-group-item">Set competitive pricing for your services.</li>
+                            <li class="list-group-item">Leverage social media for marketing.</li>
+                            <li class="list-group-item">Focus on quality and customer satisfaction.</li>
+                            <li class="list-group-item">Keep track of your finances and reinvest wisely.</li>
+                            <li class="list-group-item">Build a strong online presence with a website.</li>
+                            <li class="list-group-item">Offer promotions to attract new customers.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert Advice Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingAdvice">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdvice" aria-expanded="true" aria-controls="collapseAdvice">
+                        Expert Advice
+                    </button>
+                </h2>
+                <div id="collapseAdvice" class="accordion-collapse collapse show" aria-labelledby="headingAdvice" data-bs-parent="#sideHustleAccordion">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Start small and scale gradually.</li>
+                            <li class="list-group-item">Network with other entrepreneurs for insights and support.</li>
+                            <li class="list-group-item">Stay updated with industry trends and adapt accordingly.</li>
+                            <li class="list-group-item">Invest in tools and resources that enhance productivity.</li>
+                            <li class="list-group-item">Never underestimate the power of persistence and hard work.</li>
+                            <li class="list-group-item">Seek mentorship from experienced professionals.</li>
+                            <li class="list-group-item">Diversify your income streams for stability.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
