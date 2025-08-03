@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Literacy Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">SmartStart Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="learn_earn.html" style="font-size: 1.2rem;">
+                            <i class="fas fa-graduation-cap"></i> Learn & Earn
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="finstart.html" style="font-size: 1.2rem;">
+                            <i class="fas fa-lightbulb"></i> FinStart
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sidehustle.html" style="font-size: 1.2rem;">
+                            <i class="fas fa-briefcase"></i> SideHustle Hub
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="savetrack.html" style="font-size: 1.2rem;">
+                            <i class="fas fa-chart-line"></i> SaveTrack
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-primary text-white text-center py-5">
+        <h1>Test Your Financial Literacy</h1>
+        <p class="lead">Take this quiz to see how financially savvy you are!</p>
+    </header>
+
+    <main class="container my-5">
+        <div class="mb-4">
+            <label for="categoryFilter" class="form-label">Filter Questions by Category:</label>
+            <select id="categoryFilter" class="form-select" onchange="filterQuestions()">
+                <option value="all">All</option>
+                <option value="stock">Stock</option>
+                <option value="investment">Investment</option>
+            </select>
+        </div>
+        <form id="quizForm">
+            <div id="questionsContainer"></div>
+            <button type="button" class="btn btn-success btn-lg mt-4" onclick="submitQuiz()">Submit</button>
+        </form>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 SmartStart Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Questions data
+        const questions = [
+            { question: "What is the best way to start saving money?", options: ["Spend all your money first, then save what's left.", "Set aside a portion of your income before spending."], correct: 1, category: "investment" },
+            { question: "What is a budget?", options: ["A list of things you want to buy.", "A plan for how to spend and save your money."], correct: 1, category: "investment" },
+            { question: "What is the purpose of an emergency fund?", options: ["To buy luxury items.", "To cover unexpected expenses."], correct: 1, category: "investment" },
+            { question: "What is compound interest?", options: ["Interest earned on the initial deposit only.", "Interest earned on both the initial deposit and previously earned interest."], correct: 1, category: "investment" },
+            { question: "What is the difference between a debit card and a credit card?", options: ["Debit cards use money you already have; credit cards borrow money.", "Debit cards borrow money; credit cards use your savings."], correct: 0, category: "investment" },
+            { question: "What is the best way to reduce debt?", options: ["Ignore it and hope it goes away.", "Pay off high-interest debts first."], correct: 1, category: "investment" },
+            { question: "What is a good credit score?", options: ["Below 500.", "Above 700."], correct: 1, category: "investment" },
+            { question: "What is diversification in investing?", options: ["Putting all your money in one stock.", "Spreading investments across different assets."], correct: 1, category: "stock" },
+            { question: "What is the purpose of a retirement account?", options: ["To save for vacations.", "To save for expenses after you stop working."], correct: 1, category: "investment" },
+            { question: "What is the difference between gross income and net income?", options: ["Gross income is before taxes; net income is after taxes.", "Gross income is after taxes; net income is before taxes."], correct: 0, category: "investment" },
+            { question: "What is the best way to track expenses?", options: ["Write them down or use an app.", "Ignore them and hope for the best."], correct: 0, category: "investment" },
+            { question: "What is a stock?", options: ["A loan to a company.", "Ownership in a company."], correct: 1, category: "stock" },
+            { question: "What is a bond?", options: ["Ownership in a company.", "A loan to a company or government."], correct: 1, category: "investment" },
+            { question: "What is the purpose of insurance?", options: ["To protect against financial loss.", "To increase your savings."], correct: 0, category: "investment" },
+            { question: "What is a mutual fund?", options: ["A single stock.", "A collection of investments managed by professionals."], correct: 1, category: "investment" },
+            { question: "What is the best way to save for a large purchase?", options: ["Use a credit card.", "Set up a savings plan."], correct: 1, category: "investment" },
+            { question: "What is the purpose of a financial goal?", options: ["To guide your spending and saving.", "To spend more money."], correct: 0, category: "investment" },
+            { question: "What is the difference between saving and investing?", options: ["Saving is for short-term goals; investing is for long-term growth.", "Saving is for long-term growth; investing is for short-term goals."], correct: 0, category: "investment" },
+            { question: "What is the best way to avoid impulse buying?", options: ["Make a shopping list and stick to it.", "Buy whatever catches your eye."], correct: 0, category: "investment" },
+            { question: "What is the purpose of a credit report?", options: ["To track your spending habits.", "To show your credit history and score."], correct: 1, category: "investment" },
+            { question: "What is the best way to build credit?", options: ["Pay bills on time and keep credit card balances low.", "Max out your credit cards."], correct: 0, category: "investment" },
+            { question: "What is the purpose of a savings account?", options: ["To store money for future use.", "To spend money quickly."], correct: 0, category: "investment" },
+            { question: "What is the best way to prepare for retirement?", options: ["Start saving early and invest in retirement accounts.", "Wait until you're close to retirement."], correct: 0, category: "investment" },
+            { question: "What is the purpose of a budget?", options: ["To plan your income and expenses.", "To spend money freely."], correct: 0, category: "investment" },
+            { question: "What is the best way to handle unexpected expenses?", options: ["Use your emergency fund.", "Take out a high-interest loan."], correct: 0, category: "investment" },
+            { question: "What is the purpose of a financial advisor?", options: ["To help you make informed financial decisions.", "To spend your money for you."], correct: 0, category: "investment" },
+            { question: "What is the best way to save for college?", options: ["Use a 529 savings plan.", "Wait until tuition is due."], correct: 0, category: "investment" },
+            { question: "What is the purpose of a checking account?", options: ["To manage daily transactions.", "To save money for the future."], correct: 0, category: "investment" },
+            { question: "What is the best way to avoid overdraft fees?", options: ["Keep track of your account balance.", "Spend without checking your balance."], correct: 0, category: "investment" },
+        ];
+
+        // Generate questions dynamically
+        const questionsContainer = document.getElementById('questionsContainer');
+        function renderQuestions(filteredQuestions) {
+            questionsContainer.innerHTML = "";
+            filteredQuestions.forEach((q, index) => {
+                const questionHTML = `
+                    <div class="mb-4">
+                        <h5>${index + 1}. ${q.question}</h5>
+                        ${q.options.map((option, i) => `
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="question${index}" id="q${index}a${i}" value="${i === q.correct ? 'correct' : 'wrong'}">
+                                <label class="form-check-label" for="q${index}a${i}">${option}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                questionsContainer.innerHTML += questionHTML;
+            });
+        }
+
+        // Filter questions based on category
+        function filterQuestions() {
+            const selectedCategory = document.getElementById('categoryFilter').value;
+            const filteredQuestions = selectedCategory === "all" ? questions : questions.filter(q => q.category === selectedCategory);
+            renderQuestions(filteredQuestions);
+        }
+
+        // Initial render
+        renderQuestions(questions);
+
+        // Submit quiz
+        function submitQuiz() {
+            const answers = document.querySelectorAll('input[type="radio"]:checked');
+            let score = 0;
+
+            answers.forEach(answer => {
+                if (answer.value === 'correct') {
+                    score++;
+                }
+            });
+
+            Swal.fire({
+                title: 'Quiz Completed!',
+                text: `You scored ${score} out of ${answers.length}!`,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        }
+    </script>
+</body>
+</html>
